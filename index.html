@@ -126,7 +126,7 @@ body {
 /*NAVIGATION BAR*/
 [class*="col-"] {
   float: left;
-  padding: 15px;
+  /*padding: 15px;*/
   margin: 0;
 }
 
@@ -360,11 +360,32 @@ h3 {
 	font-size: 2em;
 	color: #1A1F25;
 }
-p {
+.white h1 a {
+	text-decoration: none;
+	color: white;
+}
+
+.white h1 {
+	text-align: center;
+	border: 1px solid red;
+	width: 50%;
+	background-color: red;
+	color: white;
+	margin-right: 5%;
+}
+.white p {
 	margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 900px){
+	.white h1 {
+	text-align: center;
+	border: 1px solid red;
+	width: 80%;
+	background-color: red;
+	color: white;
+	margin-right: 5%;
+}
 	.white, .red {
 		padding: 30px 0 30px 10%;
 		line-height: 1.5;
@@ -380,6 +401,163 @@ p {
 		font-size: 1.5rem;
 	}
 }
+
+#wrapper {
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			display: flex;
+			justify-content: space-between;
+			margin: 5%;
+		}
+
+		.card {
+			background-color: #1A1F25;
+			margin: 3px;
+			width: 320px;
+			height: 426px;
+			flex: 0 0 auto;
+			border-radius: 30px 30px 30px 30px;
+			/*display: inline-block;*/
+		}
+
+		img {
+			width: 320px;
+			height: 213px;
+  		border-radius: 30px 30px 0 0;
+}
+
+
+
+/**/
+
+.element p {
+  font-size: 23px;
+  font-weight: 600;
+  padding: 20px 20px 0 20px;
+  color: white;
+}
+.element .tyu {
+  font-size: 1em;
+  font-weight: 100;
+  /*padding: 5px;*/
+}
+
+		::-webkit-scrollbar {
+    display: none;
+    /*height: 500px;*/
+}
+
+section#myFaq {
+  padding: 5%;
+  width: 100%;
+  display: block;
+  color: white;
+  background-color: #1A1F25;
+  align-items: center;
+  border-bottom: 10px solid #222222;
+}
+.faq {
+  text-align: center;
+}
+
+/*MY ACCORDION MY ACCORDION*/
+.myAccordion {
+    padding: 30px 0 0 0;
+    line-height: 2;
+    font-size: 1em;
+    /*background-color: orange;*/
+    color: white;
+}
+.accordion {
+  background-color: #303030;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 80%;
+  border: none;
+  text-align: left;
+  outline: none;
+  /*font-size: 1.5em;*/
+  transition: 0.4s;
+  border-bottom: 1.5px solid black;
+}
+.active, .accordion:hover {
+  background-color: #303030;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  /*margin-left: 500px;*/
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  background-color: #303030;
+  max-height: 0;
+  text-align: left;
+  padding:0 3%;
+  line-height: 1.5em;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 80%;
+  /*font-size: 1.5em;*/
+  transition: max-height 0.2s ease-out;
+}
+
+/*END OF MYACCORDION*/
+
+/*------Footer------*/
+footer {
+	/*display: flex;*/
+	background-color: #1A1F25;
+	color: white;
+	bottom: 0;
+	margin-bottom: 50px;
+	position: relative;
+	width: 100%;
+		font-size: 11pt;
+
+	/*justify-content: space-around;*/
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
+
+}
+
+footer a:hover {
+	color: red;
+	text-decoration: none;
+}
+footer.col-12 {
+	margin-top: 20px;
+}
+
+footer .footer_links {
+	display: flex;
+	/*flex: 3;*/
+	justify-content: space-evenly;
+}
+
+
+footer .footer_name {
+	margin-top: 5px;
+	text-align: center;
+	color: white;
+	padding: 10px;
+}
+
+.not {
+	cursor: not-allowed;
+	/*display: inline-block;*/
+}
 	</style>
 </head>
 <body>
@@ -389,8 +567,8 @@ p {
 		<span class="col1">Hepta</span><span class="col2">Bet</span></a></h1>
 		<nav class="navbar">
 				<a href="index.html">Home</a>	
-				<a href="maintenance.html">Buy Tips</a>
-				<a href="maintenance.html">FAQ</a>
+				<a href="#wrapper">Buy Tips</a>
+				<a href="#myFaq">FAQ</a>
 				<a href="maintenance.html">Tips History</a>
 				<a href="maintenance.html">Contact</a>
 			
@@ -404,8 +582,8 @@ p {
 			<!-- <h1>HEADER LOGO</h1> -->
 		    <a href="javascript:void(0)" class="closebtn" id="myClose" onclick="closeNav()">&times;</a>
 		    <a href="index.html">Home</a>	
-				<a href="maintenance.html">Buy Tips</a>
-				<a href="maintenance.html">FAQ</a>
+				<a href="#wrapper">Buy Tips</a>
+				<a href="#myFaq">FAQ</a>
 				<a href="maintenance.html">Tips History</a>
 				<a href="maintenance.html">Contact</a>
 	  	</div>	
@@ -413,10 +591,11 @@ p {
 
 
 <main id="main">
-<div class="box">
+<div class="mainBox">
 	<section class="white">
 			<h3>High Winning Bets</h3>
 			<p>Our experienced football tipsters team ensure consistent winning football tips on a long term basis (High win rate and high Return On Investment (ROI). Our provided football tips are also played by the tipsters to give confidence to our members</p>
+			<h1><a href="">BUY TIPS</a></h1>
 		</section>
 <!-- 		<section class="red">
 			<h3>Skills</h3>
@@ -464,10 +643,106 @@ p {
   </tbody>
 </table>
 
+
+
+<div id="wrapper">
+	<!-- <div class="card pix">
+	    <img src="lagos.webp">
+	    <div class="element">
+	      <p>Lagos</p>
+	      <p class="tyu">9 Kilometres away</p>
+	    </div>
+	</div> -->
+
+	<div class="card pix">
+	    <img src="fourthball.jpg">
+	    <div class="element">
+	      <p>Buy Tips</p>
+	      <p class="tyu">We are giving free bets for 30 days to celebrate our launch. The free bet ends on April 6, 2022</p>
+	    </div>
+	</div>
+
+	<div class="card pix">
+	    <img src="ball.jpg">
+	    <div class="element">
+	      <p>Strong Win Rate</p>
+	      <p class="tyu">We aim at a over 80% win rate with high ROI. Huge percent of the tips are from the major European leagues</p>
+	    </div>
+	</div>
+	
+	<div class="card pix">
+	    <img src="secondball.jpg">
+	    <div class="element">
+	      <p>Excellent Support</p>
+	      <p class="tyu">We provide 24/7 fast support</p>
+	    </div>
+	</div>
+	
+	<div class="card pix">
+	    <img src="thirdball.jpg">
+	    <div class="element">
+	      <p>Secure Payments</p>
+	      <p class="tyu">We have flexible payment options for fiat and crypto payments </p>
+	    </div>
+	</div>
+</div>
 </main>
 
+<section id="myFaq">
+  <div class="faq">
+    <h1 class="bigCaption">Frequently Asked Questions</h1>
+    <!-- MY ACCORDION -->
+    <div class="myAccordion">
+      <button class="accordion">Which bookie do you recommend?</button>
+      <div class="panel"><br>
+        <p>We solely rely on professional bookies like Bet365, 1xbet, Bet9ja. Feel free to choose one of the previous mentioned ones, or the one your're more comfortable with.</p><br>
+      </div>
+    </div>
+    <div class="myAccordion">
+      <button class="accordion">What are the payment options?</button>
+      <div class="panel"><br>
+        <p>We aim for maximum flexibility from the customer's point of view, so you can pay via fiat or crypto</p><br>
+      </div>
+    </div>
+    <div class="myAccordion">
+      <button class="accordion">How fast will I receive your prediction?</button>
+      <div class="panel"><br>
+        <p>As fast as possible. After the payment has been confirmed, you will receive the prediction in your mailbox</p><br>
+      </div>
+    </div>
+    <div class="myAccordion">
+      <button class="accordion">What is your win rate?</button>
+      <div class="panel"><br>
+        <p>We aim at a 80% win rate and constantly working hard to improve our prediction system</p><br>
+      </div>
+    </div>
+    <div class="myAccordion">
+      <button class="accordion">What if I still have more questions?</button>
+      <div class="panel"><br>
+        <p>You can contact us. We will be glad to respond to your queries</p><br>
+      </div>
+    </div>
+    <!-- <div class="myAccordion last">
+      <button class="accordion">What can I watch on Netflix?</button>
+      <div class="panel"><br>
+        <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.</p><br>
+        <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.</p><br>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<footer class="col-12">
+		<div class="footer_links">
+			<span><a href="#">Disclaimer</span>
+			<span><a href="#">Terms and Conditions</a></span>
+			<span><a href="#">Privacy Policy</a></span>
+		</div>
+		<div id="testing" class="footer_name">© Copyright - HeptaBet</div>
+	</footer>
 
 
+<script type="text/javascript" src="accordion.js"></script>
 <script type="text/javascript">
 	
 function openNav() {
