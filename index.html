@@ -15,36 +15,490 @@
 
 	<style type="text/css">
 
-		body, html {
-			background-color: #1A1F25;
-			height: 100%;
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
 		}
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
 
-		.container{
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  height: 100%;
-		}
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
 
-		.maintenance {
-		  color: #fff;
-		  background-color: #59796F;
-		  padding: 100px;
-		  border-radius: 5px;
-		}
-		h2 {
-			text-align: center;
-		}
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+  /*background-color: red;*/
+}
+
+
+
+/*NAVIGATION BAR*/
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  margin: 0;
+}
+
+/*For Desktop*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/*For mobile device*/
+/*For Desktop*/
+
+/*------Heading------*/
+.col-12 .header-logo {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+	justify-content: center;
+}
+
+
+.navbar {
+  display: flex;
+  /*overflow: hidden;*/
+  background-color: #1A1F25;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-size: 16px;*/
+}
+
+
+.navbar a {
+  /*float: left;*/
+  flex: 1;
+  /*font-size: 16px;*/
+  color: white;
+  text-align: center;
+  padding: 0.875em 1em;
+  text-decoration: none;
+}
+
+.dropdown {
+  flex: 1;
+}
+
+
+
+.navbar a:hover {
+  background-color: #59796F;
+}
+
+.show {
+  display: block;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1A1F25;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+#mobile .openbtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #1A1F25;
+	border-radius: 5px;
+	color: #1A1F25;
+	background: rgba(0, 0, 0,0.0);
+	padding: 3px;
+	/*width: 5%;*/
+}
+
+#mobile h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 50px;
+	margin-top: 5px;
+	transition: margin-left .5s;
+	/*display: block;*/
+	/*margin-bottom: 50px;*/
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  /*transition: margin-left .5s;*/
+ /* padding: 16px;
+  margin-top: 15px;*/
+}
+
+.hide {
+  display: none;
+}
+
+.hideous {
+  margin-left: 20px;
+}
+
+@media screen and (max-height: 450px) {
+		 /*.sidenav {margin-top: 150px;}*/
+	  .sidenav a {font-size: 18px;}
+	  #mobile h1 {
+		/*position: absolute;
+		top: 0;
+		left: 0;
+		margin-left: 50px;
+		transition: margin-left .5s;*/
+		/*display: block;*/
+		margin-bottom: 50px;
+	}
+}
+
+#mobile {
+	display: none;
+}
+
+/*----Media Queries------*/
+@media screen and (max-width: 766px) {
+
+	.navbar, .col-12 h1.header-logo {
+		display: none;
+	}
+
+	#mobile {
+		display: block;
+	}
+	#main {
+		margin-top: 3em;
+	}
+}
+
+@media screen and (max-width: 500px) {
+
+	.col-sm-1 {width: 8.33%;}
+	.col-sm-2 {width: 16.66%;}
+	.col-sm-3 {width: 25%;}
+	.col-sm-4 {width: 33.33%;}
+	.col-sm-5 {width: 41.66%;}
+	.col-sm-6 {width: 50%;}
+	.col-sm-7 {width: 58.33%;}
+	.col-sm-8 {width: 66.66%;}
+	.col-sm-9 {width: 75%;}
+	.col-sm-10 {width: 83.33%;}
+	.col-sm-11 {width: 91.66%;}
+	.col-sm-12 {width: 100%;}
+
+	[class*="col-"] {
+	  float: left;
+	  padding: 15px;
+	  margin: 0;
+	}
+	.col-sm-12 {
+		width: 100%;
+		/*float: left;*/
+  		padding: 10px;
+  		margin: 0;
+	}
+}
+span.col1 {
+	color: #1A1F25
+}
+span.col2 {
+	color: #59796F;
+}
+span.col3 {
+	color: #1F2A27;
+}
+
+header h1 a {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	/*width: 70%;*/
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 40pt;
+	font-style: italic;
+	
+}
+
+
+.white, .red {
+	flex: 100%;
+	padding: 30px 0 30px 20%;
+	line-height: 2;
+	font-size: 1.2em;
+}
+
+.red {
+	background: #1A1F25;
+  	color: white;
+}
+
+h3 {
+	font-size: 2em;
+	color: #1A1F25;
+}
+p {
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 900px){
+	.white, .red {
+		padding: 30px 0 30px 10%;
+		line-height: 1.5;
+	}
+
+	h1 {
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+}
 	</style>
 </head>
 <body>
 
-<div class="container">
-	<div class="maintenance">
-		<h1>MAINTENANCE MODE</h1>
-		<h2>Stay Tuned</h2>
-	</div>
+		<header class="col-12">
+		<h1 class="header-logo"><a href="#">
+		<span class="col1">Hepta</span><span class="col2">Bet</span></a></h1>
+		<nav class="navbar">
+				<a href="index.html">Home</a>	
+				<a href="maintenance.html">Buy Tips</a>
+				<a href="maintenance.html">FAQ</a>
+				<a href="maintenance.html">Tips History</a>
+				<a href="maintenance.html">Contact</a>
+			
+		</nav>
+	</header>
+	<header id="mobile">
+		<h1 id="mobile_header"><a href="#">
+		<span class="col1">Hepta</span><span class="col2">Bet</span></a></h1>
+		<span style="font-size:30px;cursor:pointer" class="openbtn" onclick="openNav()">&#9776;</span>
+		<div id="mySidenav" class="sidenav">
+			<!-- <h1>HEADER LOGO</h1> -->
+		    <a href="javascript:void(0)" class="closebtn" id="myClose" onclick="closeNav()">&times;</a>
+		    <a href="index.html">Home</a>	
+				<a href="maintenance.html">Buy Tips</a>
+				<a href="maintenance.html">FAQ</a>
+				<a href="maintenance.html">Tips History</a>
+				<a href="maintenance.html">Contact</a>
+	  	</div>	
+	</header>
+
+
+<main id="main">
+<div class="box">
+	<section class="white">
+			<h3>High Winning Bets</h3>
+			<p>Our experienced football tipsters team ensure consistent winning football tips on a long term basis (High win rate and high Return On Investment (ROI). Our provided football tips are also played by the tipsters to give confidence to our members</p>
+		</section>
+<!-- 		<section class="red">
+			<h3>Skills</h3>
+			<p>Here are some of the technologies I enjoy writing day-to-day:</p>
+			<ul>
+				<li>HTML & CSS</li>
+				<li>JavaScript</li>
+				<li>React</li>
+				<li>Solidity</li>
+				<li>Angular</li>
+				<li>and many more</li>
+			</ul>
+		</section>
+		<section class="white">
+			<h3>How to Contact Me</h3>
+			<p>The easiest way to contact me is via twitter: <a target="_blank" href="https://twitter.com/iamtaofeek">@iamtaofeek</a></a></p>
+		</section> -->
 </div>
+	<table>
+  <caption>Latest Games</caption>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Opponents</th>
+      <th scope="col">League</th>
+      <th scope="col">Prediction</th>
+      <th scope="col">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Date">7 Mar 2022</td>
+      <td data-label="Opponents">Bilbao - Levante</td>
+      <td data-label="League">Spanish: LaLiga</td>
+      <td data-label="Prediction">Over 2 goals</td>
+      <td data-label="Result"></td>
+    </tr>
+    <!-- <tr>
+      <td scope="row" data-label="Date">Visa - 3412</td>
+      <td data-label="Opponents">04/01/2016</td>
+      <td data-label="League">$1,190</td>
+      <td data-label="Prediction">03/01/2016 - 03/31/2016</td>
+      <td data-label="Result">Won</td>
+    </tr> -->
+  </tbody>
+</table>
+
+</main>
+
+
+
+<script type="text/javascript">
+	
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  // document.getElementsByClassName("sidenav")[0].style.display="block";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mobile_header").style.marginLeft = "250px";
+  // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  // document.getElementsByClassName("sidenav")[0].style.display="block";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("mobile_header").style.marginLeft = "50px";
+  // document.body.style.backgroundColor = "rgba(0,0,0,0)";
+}
+
+
+// let closer = document.getElementById('myClose');
+let openbtn = document.getElementsByClassName('openbtn')[0];
+function bodyClose(e){
+  var snav = document.getElementById('mySidenav');
+  if (e.target.id !== snav.id && !snav.contains(e.target) && !e.target.className.match('openbtn'))
+    closeNav();
+  // console.log("Hello" + snav.id)
+}
+ window.addEventListener("click", bodyClose);
+
+
+
+</script>
 </body>
 </html>
