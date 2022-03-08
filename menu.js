@@ -24,3 +24,4 @@ function bodyClose(e){
   // console.log("Hello" + snav.id)
 }
  window.addEventListener("click", bodyClose);
+
