@@ -354,6 +354,7 @@ h3 {
 .white h1 a {
 	text-decoration: none;
 	color: white;
+	display: block;
 }
 
 .white h1 {
@@ -396,7 +397,7 @@ font-size: 0.8em;
 	}
 }
 
-#wrapper {
+#buy {
 			flex-wrap: nowrap;
 			overflow-x: auto;
 			display: flex;
